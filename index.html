@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Wiffle!!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Home page specific styles */
+        .home-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 3rem;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .surprise-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0 3rem 0;
+        }
+
+        .surprise-btn {
+            background-color: var(--theme-black);
+            /* Dark button background as per screenshot usually, but checking screenshot 2... wait, screenshot 2 shows 'SURPRISE 1' 'SURPRISE 2' in black rounded rectangles */
+            color: var(--theme-white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .intro-text,
+        .bullet-list {
+            max-width: 600px;
+            padding: 0 1rem;
+        }
+
+        .bullet-list {
+            margin-top: 2rem;
+            list-style: none;
+            /* Screenshot shows left aligned list but centered container */
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-block;
+            /* To shrink wrap content for alignment */
+        }
+
+        .bullet-list li {
+            margin-bottom: 0.2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Carousel specific adjustments */
+        .carousel-section {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        /* Canvas for confetti */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="container home-container">
+        <h1>HAPPY BIRTHDAY WIFFLE!!</h1>
+
+        <!-- Card for Intro & Buttons -->
+        <div class="card intro-card">
+            <p class="intro-text text-center">
+                hello there my love, this is a little something for you, hope you like it, nothing compared to the
+                pleasantries that will be exchanged when we meet ;)
+            </p>
+
+            <div class="surprise-buttons flex-center">
+                <a href="valentine.html"><button class="btn-black">SURPRISE 1</button></a>
+                <a href="anniversary.html"><button class="btn-black">SURPRISE 2</button></a>
+            </div>
+        </div>
+
+        <!-- Section: Memories (Top Carousel) -->
+        <div class="section-alt" style="margin: 2rem 0; border-radius: 20px;">
+            <div class="carousel-section" style="margin-bottom: 0;">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="track1">
+                        <!-- Images will be injected/cloned via JS or manual duplication for loop -->
+                        <img src="img/photo1.jpg" class="carousel-item">
+                        <img src="img/photo2.jpg" class="carousel-item">
+                        <img src="img/photo3.jpg" class="carousel-item">
+                        <img src="img/photo4.jpg" class="carousel-item">
+                        <img src="img/photo1.jpg" class="carousel-item">
+                        <img src="img/photo2.jpg" class="carousel-item">
+                        <img src="img/photo3.jpg" class="carousel-item">
+                        <img src="img/photo4.jpg" class="carousel-item">
+                        <img src="img/photo1.jpg" class="carousel-item">
+                        <img src="img/photo2.jpg" class="carousel-item">
+                        <img src="img/photo3.jpg" class="carousel-item">
+                        <img src="img/photo4.jpg" class="carousel-item">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Split Layout: Image Left, List Right -->
+        <!-- Encapsulate in a glass card for better visual grouping -->
+        <div class="card split-section">
+            <div class="left-image">
+                <img src="img/photo5.png" alt="Her Photo"
+                    style="width: 100%; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            </div>
+            <div class="right-list">
+                <ul class="bullet-list">
+                    <li>~love of my life</li>
+                    <li>~loves lillies</li>
+                    <li>~used to love chrysanthemums</li>
+                    <li>~is goated at bio</li>
+                    <li>~so gorgeous</li>
+                    <li>~insanely hot</li>
+                    <li>~i love her so much</li>
+                    <li>~how can you say no to that face</li>
+                    <li>~i miss her so much, and i wish i was there to celebrate her birthday together</li>
+                    <li>~loves tea🍵(so do i)</li>
+                    <li>~pros: very intellectual</li>
+                    <li>~on the same wavelength</li>
+                    <li>~very passionate and extremely dedicated</li>
+                    <li>~THOSE EYES</li>
+                    <li>~HER VOICE</li>
+                    <li>~HER SMILEE</li>
+                    <li>~so clingy</li>
+                    <li>~js a lil princess </li>
+                    <li>~gossip paglu</li>
+                    <li>~absolute diva</li>
+                    <li>~cons: kaleshi(nvm its a pro)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Carousel Section -->
+        <div class="section-alt" style="margin: 2rem 0; border-radius: 20px;">
+            <div class="carousel-section" style="margin-bottom: 0;">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="track2">
+                        <video src="videos/vid1.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <video src="videos/vid2.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <video src="videos/vid3.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <video src="videos/vid4.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <!-- Duplicates for seamless loop -->
+                        <video src="videos/vid1.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <video src="videos/vid2.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <video src="videos/vid3.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <video src="videos/vid4.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <video src="videos/vid1.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <video src="videos/vid2.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <video src="videos/vid3.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                        <video src="videos/vid4.mp4" class="carousel-item" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- We need a better layout structure for the Middle Section based on Screenshot 2 -->
+    <!-- Re-injecting improved layout below scripts -->
+
+    <script src="js/main.js"></script>
+    <script>
+        // Home page specific scripts
+
+        // Confetti
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const colors = ['#ffffff', '#000000', '#ffaaaa']; // White, Black, Soft Pink
+
+        function createParticle() {
+            return {
+                x: Math.random() * canvas.width,
+                y: -10,
+                size: Math.random() * 5 + 2,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                speedY: Math.random() * 2 + 1,
+                speedX: Math.random() * 2 - 1,
+                rotation: Math.random() * 360,
+                rotationSpeed: Math.random() * 2 - 1
+            };
+        }
+
+        // Create initial burst
+        for (let i = 0; i < 50; i++) particles.push(createParticle());
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (particles.length < 100 && Math.random() < 0.05) {
+                particles.push(createParticle());
+            }
+
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.y += p.speedY;
+                p.x += Math.sin(p.y * 0.01) + p.speedX;
+                p.rotation += p.rotationSpeed;
+
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation * Math.PI / 180);
+
+                // Draw heart or circle
+                if (Math.random() < 0.5) {
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    // Simple squiggly
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                }
+
+                ctx.restore();
+
+                if (p.y > canvas.height) {
+                    particles[i] = createParticle();
+                    particles[i].y = -10;
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+
+</html>
